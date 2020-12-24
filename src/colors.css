@@ -1,0 +1,13 @@
+:root{
+  /* text */
+  --text-black: #2D2D2D;
+  --text-grey: #666666;
+  --text-white: #ffffff;
+  --link-hover: #61ca22;
+  /* background */
+  --bg-lightgrey: #E5E5E5;
+  --bg-darkgrey: #C4C4C4;
+  --bg-darkblue: #3859CC; 
+  --bg-lightblue:#5474E1;
+  --bg-red: #FA7167;
+}
