@@ -1,7 +1,41 @@
-
+import { useState, useEffect } from 'react'
 import styles from './appNavbar.module.css';
 
-function appNavbar() {
+function AppNavbar() {
+  const [makebet, setMakebet] = useState(false)
+  const [results, setResult] = useState(false)
+  const [stats, setStats] = useState(false)
+  const [rules, setRules] = useState(false)
+
+  const url = document.location.pathname.split('/').pop();
+
+  useEffect(() => {    
+    if (url === 'makebet') {
+      setMakebet(true)
+      setResult(false)
+      setStats(false)
+      setRules(false)
+    }
+    if (url === 'results') {
+      setMakebet(false)
+      setResult(true)
+      setStats(false)
+      setRules(false)
+    }
+    if (url === 'stats') {
+      setMakebet(false)
+      setResult(false)
+      setStats(true)
+      setRules(false)
+    }
+    if (url === 'rules') {
+      setMakebet(false)
+      setResult(false)
+      setStats(false)
+      setRules(true)
+    }
+  }, [url]);
+
   return (
     <div className={styles.navbar}>
       <div className={styles.info}>
@@ -15,16 +49,16 @@ function appNavbar() {
       <div className={styles.bottom}>
         <ul className={styles.menu}>
           <li className={styles.item}>
-            <a href="#" className={styles.link}>Личный кабинет</a>
+            <a href="/makebet" className={makebet ? styles.active_link : styles.link}>Сделать ставку</a>
           </li>
           <li className={styles.item}>
-            <a href="#" className={styles.link}>Итоговая таблица</a>
+            <a href="/results" className={results ? styles.active_link : styles.link}>Итоговая таблица</a>
           </li>
           <li className={styles.item}>
-            <a href="#" className={styles.link}>Ставки других игороков</a>
+            <a href="/stats" className={stats ? styles.active_link : styles.link}>Ставки других игороков</a>
           </li>
           <li className={styles.item}>
-            <a href="#" className={styles.link}>Правила</a>            
+            <a href="/rules" className={rules ? styles.active_link : styles.link}>Правила</a>            
           </li>
         </ul>
       </div>
@@ -32,4 +66,4 @@ function appNavbar() {
   );
 }
 
-export default appNavbar;
+export default AppNavbar;

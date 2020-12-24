@@ -69,11 +69,12 @@
   list-style: none;
   margin-bottom: 5px;
 }
-.link{
+.link, .active_link:hover, .active_link:focus, .active_link:active {
   color: var(--text-white);
   cursor: pointer;
+  text-decoration: none;
 }
-.link:hover, .link:focus, .link:active {
+.link:hover, .link:focus, .link:active, .active_link {
   color: var(--text-white);
   text-decoration: none;
   border-bottom: 1px dashed var(--text-white);

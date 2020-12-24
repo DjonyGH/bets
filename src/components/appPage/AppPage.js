@@ -1,16 +1,19 @@
 import styles from './appPage.module.css';
-import AppTitle from './appTitle/AppTitle';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import MakeBet from './pages/MakeBet';
+import Results from './pages/Results';
+import Stats from './pages/Stats';
+import Rules from './pages/Rules';
 
 function AppPage() {
   return (
     <BrowserRouter>
       <div className={styles.page}>
-        {/* <PerfectScrollbar>
-          <AppTitle/>
-        </PerfectScrollbar> */}
+        <Route path='/makebet' component={MakeBet}/>
+        <Route path='/results' component={Results}/> 
+        <Route path='/stats' component={Stats}/> 
+        <Route path='/rules' component={Rules}/>  
       </div>
     </BrowserRouter>    
   );
